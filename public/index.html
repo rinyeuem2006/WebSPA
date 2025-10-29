@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xtray</title>
+
+    <link rel="stylesheet" href="../src/assets/css/admin.css" />
+    <link rel="stylesheet" href="../src/assets/css/user.css" />
+    <link rel="stylesheet" href="../src/assets/css/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <!-- header -->
+    <header>
+      <div class="header__top">
+        <div class="logo">Xtray</div>
+        <div class="search-bar">
+          <input
+            class="search-bar__input"
+            type="text"
+            placeholder="Nhập phụ kiện cần tìm..."
+          />
+          <button class="search-bar__btn">
+            <i class="ri-search-line"></i>
+          </button>
+        </div>
+        <nav>
+          <a href="#" data-action="open-modal" data-target="login-modal">
+            👤 Đăng nhập
+          </a>
+          <a href="#" data-action="open-modal" data-target="signup-modal">
+            ➕ Đăng ký
+          </a>
+          <a href="#" data-action="open-modal" data-target="cart-modal">
+            🛒 Giỏ hàng
+          </a>
+        </nav>
+      </div>
+      <div class="header__bottom">
+        <nav class="header__bottom__nav">
+          <ul>
+            <li><a href="#/home">Trang chủ</a></li>
+            <li><a href="#/about">Giới thiệu</a></li>
+            <li>
+              <a href="#/products"> Sản phẩm ▼ </a>
+              <nav class="header__bottom__dropdown">
+                <ul>
+                  <li><a href="#/products/cat-mouse">Chuột</a></li>
+                  <li><a href="#/products/cat-keyboard">Bàn phím</a></li>
+                  <li><a href="#/products/cat-headphone">Tai nghe</a></li>
+                  <li>
+                    <a href="#/products/cat-powerbank">Sạc dự phòng</a>
+                  </li>
+                </ul>
+              </nav>
+            </li>
+            <li><a href="#/contact">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- end header -->
+
+    <!-- main rong  -->
+    <main id="app"></main>
+
+    <!-- Cố định -->
+    <div id="modal-container" class="modal-container">
+      <div class="modal-overlay" data-action="close-modal"></div>
+
+      <div id="login-modal" class="modal-content">
+        <button class="close-btn" data-action="close-modal">&times;</button>
+        <h2>Đăng nhập</h2>
+      </div>
+
+      <div id="signup-modal" class="modal-content">
+        <button class="close-btn" data-action="close-modal">&times;</button>
+        <h2>Đăng ký</h2>
+      </div>
+    </div>
+    <section id="cart-modal-section" class="modal-container">
+      <div id="cart-modal" class="modal-content">
+        <button class="close-btn" data-action="close-modal">&times;</button>
+        <h2>Giỏ hàng</h2>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer>
+      <div class="footer__top">
+        <div class="footer__top-slogan">
+          <i class="ri-truck-line"></i>
+          <div class="footer__top-slogan-text">
+            <span class="footer__top-slogan-text-01">Miễn phí vận chuyển</span>
+            <span class="footer__top-slogan-text-02"
+              >Cho đơn hàng trên 100.000đ</span
+            >
+          </div>
+        </div>
+        <div class="footer__top-slogan">
+          <i class="ri-shield-check-line"></i>
+          <div class="footer__top-slogan-text">
+            <span class="footer__top-slogan-text-01">Bảo hành 12 tháng</span>
+            <span class="footer__top-slogan-text-02">Cho tất cả sản phẩm</span>
+          </div>
+        </div>
+        <div class="footer__top-slogan">
+          <i class="ri-wallet-line"></i>
+          <div class="footer__top-slogan-text">
+            <span class="footer__top-slogan-text-01">Thanh toán đa dạng</span>
+            <span class="footer__top-slogan-text-02">COD, ATM, Visa...</span>
+          </div>
+        </div>
+        <div class="footer__top-slogan">
+          <i class="ri-customer-service-line"></i>
+          <div class="footer__top-slogan-text">
+            <span class="footer__top-slogan-text-01">Hỗ trợ 24/7</span>
+            <span class="footer__top-slogan-text-02">Cho tất cả sản phẩm</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__bottom-box01">
+          <h1>XTray</h1>
+          <p>
+            Xtray là địa chỉ uy tín hàng đầu chuyên cung cấp phụ kiện <br />
+            kiện tử chính hãng với chất lượng tốt nhất. Chúng tôi cam kết <br />
+            hàng đến trải nghiệm mua sắm tuyệt vời nhất cho khách hàng.
+          </p>
+
+          <h2>Kết nối với chúng tôi</h2>
+          <div class="footer__bottom-social">
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-github-line"></i></a>
+            <a href="#"><i class="ri-twitter-x-line"></i></a>
+          </div>
+        </div>
+        <div class="footer__bottom-box02">
+          <a href="#/home">Trang chủ</a>
+          <a href="#/about">Giới thiệu</a>
+          <a href="#/products">Sản phẩm</a>
+          <div class="footer__bottom-box02-contact">
+            <a class="footer__bottom-box02-contact-a-special" href="#"
+              >Liên hệ</a
+            >
+            <div class="footer__bottom-box02-contact-item">
+              <i class="ri-phone-line"></i><span>1900 1234</span>
+            </div>
+            <div class="footer__bottom-box02-contact-item">
+              <i class="ri-mail-line"></i><span>xtray@gmail.com</span>
+            </div>
+            <div class="footer__bottom-box02-contact-item">
+              <i class="ri-map-pin-line"></i
+              ><span>123 Đường ABC, Quận XYZ, TP. HCM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../src/index.js"></script>
+    <script type="module" src="../src/utils/modalHandler.js"></script>
+  </body>
+</html>

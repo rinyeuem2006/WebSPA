@@ -1,0 +1,335 @@
+:root {
+  --header-h: 12rem; /* đồng bộ với height của header */
+  --modal-z: 2000; /* modal base stacking */
+  --header-z: 3000; /* header luôn ở trên cùng */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Rất quan trọng cho việc dùng rem */
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  font-family: "McLaren", sans-serif;
+  line-height: 1.6;
+
+  padding-top: var(--header-h); /* Đẩy nội dung xuống dưới header cố định */
+}
+/* header */
+/* Header css */
+header {
+  width: 100%;
+  height: var(--header-h); /* Chiều cao tổng của header */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--header-z); /* header luôn nằm trên modal */
+  background-color: #171717;
+}
+/* Điều chỉnh lại .header__top */
+.header__top {
+  width: 100%;
+  height: 8rem; /* Giữ nguyên chiều cao top */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  background-color: #171717;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  /* LOẠI BỎ position: fixed và z-index ở đây */
+  position: relative; /* Dùng relative để top/left hoạt động trong thẻ cha */
+}
+.logo {
+  font-family: "Anton SC", sans-serif;
+  font-size: 6.1rem;
+  color: #fff;
+}
+.search-bar {
+  position: relative;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  margin-left: 6rem;
+}
+.search-bar .search-bar__input {
+  width: 53.6rem;
+  height: 4rem;
+  padding: 1rem 1.5rem;
+  border: 0.1rem solid black;
+  border-radius: 0.8rem;
+}
+.search-bar .search-bar__btn {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  right: 0.6rem;
+  top: 0.5rem;
+}
+.search-bar .search-bar__btn i {
+  font-size: 1.6rem;
+}
+header .header__top nav a {
+  padding: 1rem;
+  border: 0.1rem solid rgb(116 116 64);
+  border-radius: 0.3rem;
+  color: yellow;
+  font-family: "McLaren", sans-serif;
+  font-size: 1.2rem;
+}
+header .header__top nav a:hover {
+  background-image: linear-gradient(to right, yellow, #7ed56f);
+  color: #000;
+  border-color: yellow;
+}
+header .header__top nav a:not(:last-child) {
+  margin-right: 1rem;
+}
+/* Điều chỉnh lại .header__bottom */
+header .header__bottom {
+  width: 100%;
+  height: 4rem; /* Giữ nguyên chiều cao bottom */
+  background-color: yellow;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  /* LOẠI BỎ position: fixed và top: 8rem ở đây */
+  position: relative;
+}
+header .header__bottom .header__bottom__nav {
+  width: 100%;
+  height: 100%;
+}
+header .header__bottom .header__bottom__nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 2.5rem;
+  font-size: 1.65rem;
+  font-family: "McLaren", sans-serif;
+}
+header .header__bottom .header__bottom__nav ul li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  position: relative;
+}
+header
+  .header__bottom
+  .header__bottom__nav
+  ul
+  .header__bottom__nav__marginLeft {
+  margin-left: 3rem;
+}
+header .header__bottom .header__bottom__nav ul li a {
+  color: #000;
+}
+header .header__bottom .header__bottom__dropdown {
+  display: none;
+}
+/* Điều chỉnh vị trí của dropdown */
+header
+  .header__bottom
+  .header__bottom__nav
+  ul
+  li:hover
+  .header__bottom__dropdown {
+  /* === SỬA LỖI LOGIC TẠI ĐÂY === */
+  /* Bỏ margin-top, dùng top và left */
+  top: 100%; /* 100% chiều cao của thẻ li (là 4rem) */
+  left: 0; /* Căn trái với thẻ li */
+  /* === HẾT SỬA LỖI === */
+
+  display: block;
+  width: 18rem;
+  height: 18rem;
+  position: absolute;
+  background-color: yellow;
+  border-radius: 0.3rem;
+  z-index: 1001; /* Nằm trên header (1000) */
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2); /* Thêm bóng đổ */
+}
+header .header__bottom .header__bottom__nav .header__bottom__dropdown ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  font-family: "Arial", sans-serif;
+}
+header .header__bottom .header__bottom__nav .header__bottom__dropdown ul li {
+  width: 100%;
+  height: 100%;
+}
+header .header__bottom .header__bottom__nav .header__bottom__dropdown ul li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #000;
+  margin-left: 1rem;
+}
+header
+  .header__bottom
+  .header__bottom__nav
+  ul
+  li:hover
+  .header__bottom__dropdown
+  ul
+  li:not(:last-child) {
+  border-bottom: 0.1rem solid #333;
+}
+
+/* Begin footer  */
+footer {
+  border-top: 0.1em solid yellow; /* Đổi sang em */
+}
+.footer__top {
+  width: 100%;
+  height: 10%;
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3em; /* Sửa: rem -> em */
+  border-bottom: 0.1em solid #3a3a3a; /* Sửa: rem -> em */
+}
+.footer__top .footer__top-slogan {
+  display: flex;
+  align-items: center;
+  gap: 1em; /* Sửa: rem -> em */
+  font-size: 2em; /* Sửa: rem -> em */
+  color: #fff;
+}
+.footer__top .footer__top-slogan i {
+  padding: 1.5em; /* Sửa: rem -> em */
+  border-radius: 50%;
+  background-color: #231e09;
+  color: yellow;
+}
+.footer__top .footer__top-slogan .footer__top-slogan-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em; /* Sửa: rem -> em */
+  justify-content: center;
+}
+.footer__top
+  .footer__top-slogan
+  .footer__top-slogan-text
+  .footer__top-slogan-text-01 {
+  font-size: 1.6em; /* Sửa: rem -> em */
+}
+.footer__top
+  .footer__top-slogan
+  .footer__top-slogan-text
+  .footer__top-slogan-text-02 {
+  font-size: 1.2em; /* Sửa: rem -> em */
+  color: #a0a092;
+}
+/* End footer__top */
+/* Begin footer__bottom */
+.footer__bottom {
+  width: 100%;
+  height: 100%;
+  background-color: #0a0a0a;
+  padding: 5em 5em 5em 18em; /* Sửa: rem -> em */
+  display: flex;
+  align-items: start;
+  gap: 5em; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box01 {
+  display: flex;
+  flex-direction: column;
+  gap: 1em; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box01 h1 {
+  font-size: 6em; /* Sửa: rem -> em */
+  color: #fff;
+  font-family: "Anton SC", sans-serif;
+}
+.footer__bottom .footer__bottom-box01 p {
+  font-size: 1.6em; /* Sửa: rem -> em */
+  color: #fff;
+  margin-bottom: 2.4em; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box01 h2 {
+  color: yellow;
+  font-size: 1.6em; /* Sửa: rem -> em */
+  margin-bottom: 1em; /* Sửa: rem -> em */
+}
+
+.footer__bottom .footer__bottom-box01 .footer__bottom-social {
+  display: flex;
+  gap: 1em; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box01 .footer__bottom-social a i:hover {
+  background-color: yellow;
+  color: #000;
+}
+.footer__bottom .footer__bottom-box01 .footer__bottom-social a i {
+  padding: 1em; /* Sửa: rem -> em */
+  border-radius: 1em; /* Sửa: rem -> em */
+  background-color: transparent;
+  border: 0.1em solid #505050; /* Sửa: rem -> em */
+  font-size: 1.6em; /* Sửa: rem -> em */
+  color: #fff;
+}
+.footer__bottom .footer__bottom-box02 {
+  display: flex;
+  gap: 11em; /* Sửa: rem -> em */
+  color: #fff;
+  margin-top: 1.1em; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box02 a {
+  font-size: 1.6em; /* Sửa: rem -> em */
+  color: #fff;
+  display: inline-block;
+  width: 10em; /* Sửa: rem -> em */
+}
+.footer__bottom
+  .footer__bottom-box02
+  a:not(.footer__bottom-box02-contact-a-special):hover {
+  color: yellow;
+}
+.footer__bottom .footer__bottom-box02 .footer__bottom-box02-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2em; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box02 .footer__bottom-box02-contact-a-special {
+  width: 17em; /* Sửa: rem -> em */
+  padding-bottom: 1em; /* Sửa: rem -> em */
+  border-bottom: 0.1em solid yellow; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box02 .footer__bottom-box02-contact i {
+  font-size: 1.6em; /* Sửa: rem -> em */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1em; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box02 .footer__bottom-box02-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1em; /* Sửa: rem -> em */
+}
+.footer__bottom .footer__bottom-box02 .footer__bottom-box02-contact-item span {
+  font-size: 1.4em; /* Sửa: rem -> em */
+  color: #fff;
+}
+.footer__bottom .footer__bottom-box02 .footer__bottom-box02-contact-item i {
+  font-size: 2em; /* Sửa: rem -> em */
+  color: yellow;
+}
+
+/* login css and register css */
+
+/* Css giới thiệu  */
+
+/* Css liên hệ  */
+
+/* Css sản phẩm  */
